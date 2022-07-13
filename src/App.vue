@@ -1,24 +1,16 @@
 <template>
   <div>
-    <H1>黑马</H1>
-    <span class="toutiao toutiao-wuwangluo"></span>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="info">信息按钮</van-button>
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="warning">警告按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>
-    <button class="gg"></button>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {}
+import request from '@/utils/request'
+export default {
+  created () {
+    console.dir(request)
+  }
+}
 </script>
 
-<style scoped>
-.gg {
-  width: 160px;
-  background-color: skyblue;
-  height: 30px;
-}
-</style>
+<style scoped></style>
