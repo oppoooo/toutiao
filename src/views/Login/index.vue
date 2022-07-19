@@ -50,7 +50,9 @@
         </template>
       </van-field>
       <div style="margin: 16px">
-        <van-button block type="info" native-type="submit">提交</van-button>
+        <van-button block type="info" native-type="submit" @click="login"
+          >提交</van-button
+        >
       </div>
     </van-form>
     <h1>{{ $store.state.Number }}</h1>
@@ -86,7 +88,7 @@ export default {
         // 存储token
         this.$store.commit('setUser', res.data.data)
         this.$toast.success('登录成功')
-        this.$router.push()
+        this.$router.push('/profile')
         console.log(res)
       } catch (err) {
         // 失败验证

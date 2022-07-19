@@ -12,7 +12,7 @@ export default new Vuex.Store({
   getters: {},
   mutations: {
     setUser (state, payload) {
-      state.token = payload
+      state.user = payload
       // token存储在本地
       // localStorage.setItem('HEIMATOKEN', JSON.stringify(payload))
       // storage.set('HEIMATOKEN', payload)
