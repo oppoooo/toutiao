@@ -17,6 +17,7 @@
           v-for="(item, index) in articles"
           :key="index"
           :articleInfo="item"
+          @click="tzArticle"
         ></ArticleItem
       ></van-list>
     </van-pull-refresh>
@@ -50,9 +51,14 @@ export default {
     this.getArticleList()
   },
   methods: {
+    async tzArticle () {
+      const { data } = await getArticleList(this.id, +new Date())
+      console.log(data)
+    },
     async getArticleList () {
       try {
         const { data } = await getArticleList(this.id, +new Date())
+
         this.pre_timestamp = data.data.pre_timestamp
         this.articles = data.data.results
       } catch (error) {
@@ -67,6 +73,7 @@ export default {
     async loadNextPage () {
       try {
         const { data } = await getArticleList(this.id, this.pre_timestamp)
+        console.log(data)
         if (!data.data.pre_timestamp) {
           this.isFinished = true
         }

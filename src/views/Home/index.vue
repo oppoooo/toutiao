@@ -3,7 +3,9 @@
     <!-- 头部导航 -->
     <van-nav-bar class="navbar">
       <template #title>
-        <van-button round><van-icon name="search">搜索</van-icon></van-button>
+        <van-button round @click="$router.push('/search')"
+          ><van-icon name="search">搜索</van-icon></van-button
+        >
       </template>
     </van-nav-bar>
 
@@ -37,6 +39,9 @@ import {
 } from '@/api'
 import ArticleList from './component/ArticleList'
 import EditChannelPopup from './component/EditChannelPopup.vue'
+
+// 兄弟组件传值
+
 export default {
   data () {
     return {
